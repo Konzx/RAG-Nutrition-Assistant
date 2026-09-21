@@ -105,7 +105,7 @@ exact origins. Auth redirect settings are separate from CORS settings.
 The frontend sends only the current question. Conversation history is kept
 in page memory, cleared on account changes, and not sent as model context.
 The response sound is synthesized locally with Web Audio after an answer
-arrives. The Sound on/off control remembers the preference in this browser.
+arrives. The completion chime has no on-screen toggle.
 Audio is unlocked by the question submission gesture; browser audio policies
 may silence background tabs. Errors and empty retrieval do not play a chime.
 

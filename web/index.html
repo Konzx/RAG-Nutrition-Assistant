@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f8fafc"><meta name="description" content="Nutrition answers grounded in your textbook.">
-<title>RAG nutrition assistant</title>
+<title>RAG Nutrition Assistant</title>
 <link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script defer src="./config.js"></script><script defer src="./app.js"></script>
@@ -12,18 +12,18 @@
 <a class="skip-link" href="#question">Skip to question</a>
 <div class="app-shell">
 <header class="topbar">
-<div class="identity"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="32" height="32"><span>RAG nutrition assistant</span></a><p class="byline">Presented by Ankit Kondilkar</p></div>
-<div class="topbar-actions"><button id="sound-toggle" class="text-button" aria-pressed="true" title="Toggle response sound">Sound on</button><button id="account-button" class="button small">Sign in</button></div>
+<div class="identity"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="32" height="32"><span>RAG Nutrition Assistant</span></a><p class="byline">Presented by Ankit Kondilkar</p></div>
+<div class="topbar-actions"><button id="account-button" class="button small">Sign in</button></div>
 </header>
 <main id="main-content"><section class="chat-column" aria-label="Nutrition conversation">
 <div class="workspace-tools"><span class="evidence-pill"><span></span> Human Nutrition: 2020 Edition by University of Hawai‘i at Mānoa Food Science and Human Nutrition Program</span><button id="new-chat" class="text-button">+ New conversation</button></div>
 <div id="welcome" class="welcome">
-<div class="orb" aria-hidden="true">✦</div><h1>Ask. Understand.<br><em>Nourish.</em></h1>
+<div class="orb" aria-hidden="true">✦</div><h1>Learn nutrition from<br><em>trusted scientific sources</em></h1>
 <p class="intro">Nutrition answers, grounded in your textbook.<br>Follow the citations. Explore the science.</p>
 <div class="suggestions">
-<button class="suggestion" data-question="What are the main functions of carbohydrates, proteins, and fats in the body?">What do macronutrients actually do? <span aria-hidden="true">↗</span></button>
-<button class="suggestion" data-question="What is the difference between soluble and insoluble dietary fiber?">How does dietary fiber help? <span aria-hidden="true">↗</span></button>
-<button class="suggestion" data-question="How do calcium and vitamin D work together to support bone health?">Calcium &amp; vitamin D <span aria-hidden="true">↗</span></button>
+<button class="suggestion"><span class="question-label">What do macronutrients actually do?</span> <span aria-hidden="true">↗</span></button>
+<button class="suggestion"><span class="question-label">How does dietary fiber help?</span> <span aria-hidden="true">↗</span></button>
+<button class="suggestion"><span class="question-label">Calcium &amp; vitamin D</span> <span aria-hidden="true">↗</span></button>
 </div></div>
 <div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div>
 <div id="busy" class="busy hidden" role="status"><span class="spinner"></span> Finding passages and preparing your answer…</div>

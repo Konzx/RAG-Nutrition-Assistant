@@ -4,16 +4,9 @@
   const $ = (id) => document.getElementById(id);
   let client, session = null, sending = false, signup = false, controller;
   let generation = 0;
-  let audioContext, soundGain, soundEnabled = true;
-  try { soundEnabled = localStorage.getItem('nutrition-response-sound') !== 'off'; } catch { /* Storage may be disabled. */ }
-  function soundControl() {
-    $('sound-toggle').textContent = soundEnabled ? 'Sound on' : 'Sound off';
-    $('sound-toggle').setAttribute('aria-pressed', String(soundEnabled));
-    if (soundGain && audioContext) soundGain.gain.setValueAtTime(soundEnabled ? 0.065 : 0, audioContext.currentTime);
-  }
-  // Unlock audio inside the submit/toggle gesture, before the network request.
+  let audioContext, soundGain;
+  // Unlock audio inside the submit gesture, before the network request.
   function unlockSound() {
-    if (!soundEnabled) return;
     try {
       const Audio = window.AudioContext || window.webkitAudioContext;
       if (!Audio) return;
@@ -27,7 +20,7 @@
     } catch { /* Audio is optional; never interrupt chat. */ }
   }
   function responseSound() {
-    if (!soundEnabled || audioContext?.state !== 'running') return;
+    if (audioContext?.state !== 'running') return;
     try {
       const now = audioContext.currentTime;
       [660, 880, 1320].forEach((frequency, index) => {
@@ -48,13 +41,6 @@
       });
     } catch { /* Browsers may suspend audio in background tabs. */ }
   }
-  $('sound-toggle').onclick = () => {
-    soundEnabled = !soundEnabled;
-    try { localStorage.setItem('nutrition-response-sound', soundEnabled ? 'on' : 'off'); } catch { /* Optional preference. */ }
-    soundControl();
-    unlockSound();
-  };
-  soundControl();
   const notice = (text = '') => {
     $('chat-error').textContent = text;
     $('chat-error').classList.toggle('hidden', !text);
@@ -186,7 +172,7 @@
   document.querySelectorAll('.suggestion').forEach((button) => {
     button.onclick = () => {
       if (sending) return;
-      $('question').value = button.dataset.question;
+      $('question').value = button.querySelector('.question-label').textContent.trim();
       controls();
       $('question').focus();
     };
