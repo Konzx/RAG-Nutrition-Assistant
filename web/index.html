@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8fafc"><meta name="description" content="Nutrition answers grounded in your textbook.">
+<title>RAG nutrition assistant</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script defer src="./config.js"></script><script defer src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#question">Skip to question</a>
+<div class="app-shell">
+<header class="topbar">
+<div class="identity"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="32" height="32"><span>RAG nutrition assistant</span></a><p class="byline">Presented by Ankit Kondilkar</p></div>
+<div class="topbar-actions"><button id="sound-toggle" class="text-button" aria-pressed="true" title="Toggle response sound">Sound on</button><button id="account-button" class="button small">Sign in</button></div>
+</header>
+<main id="main-content"><section class="chat-column" aria-label="Nutrition conversation">
+<div class="workspace-tools"><span class="evidence-pill"><span></span> Human Nutrition: 2020 Edition by University of Hawai‘i at Mānoa Food Science and Human Nutrition Program</span><button id="new-chat" class="text-button">+ New conversation</button></div>
+<div id="welcome" class="welcome">
+<div class="orb" aria-hidden="true">✦</div><h1>Ask. Understand.<br><em>Nourish.</em></h1>
+<p class="intro">Nutrition answers, grounded in your textbook.<br>Follow the citations. Explore the science.</p>
+<div class="suggestions">
+<button class="suggestion" data-question="What are the main functions of carbohydrates, proteins, and fats in the body?">What do macronutrients actually do? <span aria-hidden="true">↗</span></button>
+<button class="suggestion" data-question="What is the difference between soluble and insoluble dietary fiber?">How does dietary fiber help? <span aria-hidden="true">↗</span></button>
+<button class="suggestion" data-question="How do calcium and vitamin D work together to support bone health?">Calcium &amp; vitamin D <span aria-hidden="true">↗</span></button>
+</div></div>
+<div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div>
+<div id="busy" class="busy hidden" role="status"><span class="spinner"></span> Finding passages and preparing your answer…</div>
+<div id="chat-error" class="notice error hidden" role="alert"></div>
+<form id="chat-form" class="composer"><label class="sr-only" for="question">Your nutrition question</label>
+<textarea id="question" rows="2" maxlength="1000" placeholder="Ask a nutrition question…"></textarea>
+<div class="composer-bottom"><span>Answers with sources</span><div class="compose-actions"><span id="character-count">0 / 1000</span><button id="send" type="submit" aria-label="Send question">↑</button></div></div></form>
+<div class="under-composer"><span>Each question starts fresh.</span><span id="quota">10 questions per day after sign-in</span></div>
+<div class="source-toolbar"><button id="library-nav" class="text-button" aria-expanded="false" aria-controls="source-column">Textbook &amp; sources <span id="source-count">—</span></button><span id="account-caption">Sign in to start exploring</span><span id="account-name" class="sr-only">Your learning space</span></div>
+<aside class="source-column hidden" id="source-column" aria-label="Textbook and supporting sources">
+<div class="source-title"><strong>Human Nutrition: 2020 Edition by University of Hawai‘i at Mānoa Food Science and Human Nutrition Program</strong><span>Supporting passages</span></div>
+<div id="source-empty" class="source-empty"><p>Ask a question to see the textbook passages behind your answer.</p></div>
+<div id="sources" class="sources"></div><p id="review-notes" class="notice hidden"></p></aside>
+</section></main>
+<footer>For learning and exploration. Read the sources alongside each answer.</footer></div>
+<dialog id="auth-dialog" aria-labelledby="auth-title">
+<button id="close-auth" class="close-dialog" aria-label="Close sign-in">×</button><img src="./favicon.svg" alt="" width="38" height="38">
+<h2 id="auth-title">Welcome back.</h2><p id="auth-description">Sign in to explore your nutrition textbook.</p>
+<form id="auth-form"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" minlength="1" required placeholder="Your password"><button id="auth-submit" class="button" type="submit">Sign in</button></form>
+<p id="auth-message" role="status"></p><button id="auth-toggle" class="text-button">New here? Create an account</button><p class="auth-footnote">10 questions per day. Answers grounded in the textbook.</p>
+</dialog><noscript>This app needs JavaScript to sign in and answer questions.</noscript>
+</body></html>

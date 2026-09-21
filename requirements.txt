@@ -1,0 +1,7 @@
+pymupdf>=1.24,<2
+spacy>=3.7,<4
+numpy>=1.26,<3
+huggingface_hub>=0.34.6,<2
+supabase>=2.15,<3
+python-dotenv>=1,<2
+httpx>=0.27,<1

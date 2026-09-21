@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+.notebook-runtime/
+.edge-tools/
+__pycache__/
+.ipynb_checkpoints/
+.vercel/
+node_modules/
+rag_test_results/
+chunk_analysis_results/
+web-test-results/
+dist/
+*.pdf

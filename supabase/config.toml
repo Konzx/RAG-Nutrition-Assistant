@@ -1,0 +1,6 @@
+project_id = "nutrition-rag"
+
+[functions.nutrition-chat]
+enabled = true
+verify_jwt = true
+entrypoint = "./functions/nutrition-chat/index.ts"
